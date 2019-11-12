@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteGames.Master.cs" Inherits="BibliotecaJogos.Site.Games.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/Games/GameLibraryPL/GameLibrary.aspx">Catálogo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active" id="navLinkEditPublisher" runat="server">
+                        <a class="nav-link" href="/Games/PublisherPL/EditPublisher.aspx">Editoras</a>
+                    </li>
+                    <li class="nav-item active" id="navLinkEditGenre" runat="server">
+                        <a class="nav-link" href="/Games/GenrePL/EditGenre.aspx">Géneros</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">Bem vindo(a) <%= Session["username"].ToString() %>
+                </span>
+            </div>
+            <div style="padding-left: 1rem">
+                <asp:Button ID="buttonLogout" Text="Logout" runat="server" OnClick="buttonLogout_Click" />
+            </div>
+        </nav>
+        <div class="jumbotron">
+        <h2>Biblioteca dos meus Jogos</h2>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+</body>
+</html>
