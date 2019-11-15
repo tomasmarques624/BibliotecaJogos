@@ -21,7 +21,7 @@
                 <tr>
                     <td>Capa</td>
                     <td>
-                        <asp:Image runat="server" id="imageCapa"/>
+                        <asp:Image style="width: 150px; height: 200px"  runat="server" id="imageCapa"/>
                     </td>
                 </tr>
 
@@ -53,7 +53,7 @@
                     </td>
                 </tr>
             </table>
-            <asp:Button id="btCatalogo" Text="Voltar ao Catálogo" runat="server" />
+            <asp:Button id="btCatalogo" Text="Voltar ao Catálogo" runat="server" OnClick="btCatalogo_Click" />
         </div>
     </form>
 </body>

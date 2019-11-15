@@ -41,9 +41,13 @@ namespace BibliotecaJogos.Site
                     tbxPassword.Enabled = false;
                     btCancelar.Visible = false;
                     btRegistar.Visible = false;
-                    hlLogin.Visible = true;
                 }
             }
+        }
+
+        protected void btCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Authentication/Login.aspx");
         }
     }
 }

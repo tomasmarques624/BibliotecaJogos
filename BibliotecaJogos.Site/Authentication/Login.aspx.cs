@@ -31,6 +31,8 @@ namespace BibliotecaJogos.Site
                 else
                 {
                     Session["role"] = user.Role;
+                    char a = user.Role;
+                    Session["username"] = user.Username;
                     FormsAuthentication.RedirectFromLoginPage("~/Games/GameLibraryPL/GameLibrary.aspx", false);
                 }
             }

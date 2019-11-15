@@ -6,19 +6,19 @@
 <head runat="server">
     <title></title>
     <link href="../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="sidenav">
+    <div class="sidenav" runat="server">
          <div class="login-main-text">
-            <h2>Application<br/> Login Page</h2>
-            <p>Login or register from here to access.</p>
+            <h2>Bliblioteca de Jogos</h2>
+            <p>Faça Login ou efetue o registo para aceder à aplicação.</p>
          </div>
       </div>
-      <div class="main">
+      <div class="main" runat="server">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-               <form>
+               <form runat="server">
                   <div class="form-group">
                      <label>User Name</label>
                      <asp:TextBox ID="tbxUsername" CssClass="form-control" runat="server"></asp:TextBox>
@@ -31,11 +31,14 @@
                   </div>
                    <asp:ValidationSummary HeaderText="Erros" ForeColor="Red" runat="server" />
                    <asp:Label Text="" ID="lbMensagem"  runat="server" ForeColor="Red" />
+                   <br />
                   <asp:Button id="btLogin" Text="Login" runat="server" CssClass="btn btn-black" OnClick="btLogin_Click" />
-                  <asp:HyperLink ID="hlRegisto" runat="server" CssClass="" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
+                  <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-primary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
                </form>
             </div>
          </div>
       </div>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
 </body>
 </html>
