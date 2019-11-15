@@ -29,7 +29,7 @@ namespace BibliotecaJogos.Site.Games.GamePL
                 lbGenre.Text = genre.description_genre;
                 lbPublisher.Text = publisher.name_publisher;
                 lbTitle.Text = game.title;
-                lbPurchaseDate.Text = game.purchase_date.ToString();
+                lbPurchaseDate.Text = Convert.ToDateTime(game.purchase_date).ToString("dd-MM-yyyy");
                 imageCapa.ImageUrl = "../../Content/CoverImages/" + game.cover_image;
             }
         }

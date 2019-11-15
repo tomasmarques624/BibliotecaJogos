@@ -128,7 +128,7 @@ namespace BibliotecaJogos.DataAccess.GameDA
                     command.Parameters.AddWithValue("@id_game", game.id_game);
                     command.Parameters.AddWithValue("@title", game.title);
                     command.Parameters.AddWithValue("@cover_image", game.cover_image);
-                    command.Parameters.AddWithValue("@amout_paid", (object)game.amount_paid ?? SqlMoney.Null);
+                    command.Parameters.AddWithValue("@amount_paid", (object)game.amount_paid ?? SqlMoney.Null);
                     command.Parameters.AddWithValue("@purchase_date", (object)game.purchase_date ?? SqlDateTime.Null);
                     command.Parameters.AddWithValue("@id_publisher", game.id_publisher);
                     command.Parameters.AddWithValue("@id_genre", game.id_genre);

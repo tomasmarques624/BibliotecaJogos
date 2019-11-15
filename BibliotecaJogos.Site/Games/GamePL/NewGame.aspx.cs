@@ -61,6 +61,8 @@ namespace BibliotecaJogos.Site
                     tbxDataCompra.Enabled = false;
                     tbxTitulo.Enabled = false;
                     fluCapa.Enabled = false;
+                    ddlEditor.Enabled = false;
+                    ddlGenero.Enabled = false;
                     btCancelar.Visible = false;
                     btInserir.Visible = false;
                     btLimpar.Visible = false;

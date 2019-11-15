@@ -28,13 +28,12 @@
                     <td>Nova Capa</td>
                     <td>
                         <asp:FileUpload runat="server" ID="fluCapa"/>
-                         <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário uma capa" Text="*" ControlToValidate="fluCapa" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Valor Pago</td>
                     <td>
-                        <asp:TextBox runat="server" ID="tbxValorPago" TextMode="Number" />  
+                        <asp:TextBox runat="server" ID="tbxValorPago" />
                     </td>
                 </tr>
                 <tr>
@@ -76,8 +75,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button id="btSalvar" Text="Salvar" runat="server" />
-                         <asp:Button id="btCancelar" Text="Cancelar" CausesValidation="false" runat="server" />
+                        <asp:Button id="btSalvar" Text="Salvar" runat="server" OnClick="btSalvar_Click" />
+                         <asp:Button id="btCancelar" Text="Cancelar" CausesValidation="false" runat="server" OnClick="btCancelar_Click" />
                     </td>
                 </tr>
             </table>
