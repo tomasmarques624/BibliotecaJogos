@@ -33,6 +33,43 @@ namespace BibliotecaJogos.DataAccess.UserDA
                 }
             }
         }
+        public static User GetUserByID(int id_user)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_GetUserByID";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_user", id_user);
+                    connection.Open();
+                    using (SqlDataReader dataReader = command.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            if (Convert.ToInt32(dataReader["ReturnCode"]) == -1)
+                            {
+                                return null;
+                            }
+                            if (dataReader.NextResult())
+                            {
+                                dataReader.Read();
+                                User user = new User()
+                                {
+                                    id_User = Convert.ToInt32(dataReader["id_user"]),
+                                    Username = dataReader["username"].ToString(),
+                                    Role = dataReader["role"].ToString()[0]
+                                };
+                                return user;
+                            }
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
 
         public static User GetUser(string username, string password)
         {
