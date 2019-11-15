@@ -80,11 +80,11 @@ namespace BibliotecaJogos.Site
                     id_genre = Convert.ToInt32(ddlGenero.SelectedValue),
                     id_publisher = Convert.ToInt32(ddlEditor.SelectedValue)
             };
-                double? a = game.amount_paid;
+
             int ReturnCode = GameDAO.UpdateGame(game);
                 if (ReturnCode == -1){
                     lbMensagem.ForeColor = System.Drawing.Color.Red;
-                    lbMensagem.Text = "Edição falhada!<br />Contacte o administrador ou tente novamente...";
+                    lbMensagem.Text = "Edição falhada!";
                 }
                 else
                 {
