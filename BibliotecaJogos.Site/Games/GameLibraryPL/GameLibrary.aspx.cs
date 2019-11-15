@@ -21,7 +21,7 @@ namespace BibliotecaJogos.Site.Games.GameLibraryPL
 
         protected void btNovoJogo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Games/GamePL/NewGame.aspx");
         }
     }
 }

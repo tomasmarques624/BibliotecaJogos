@@ -21,10 +21,10 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active" id="navLinkEditPublisher" runat="server">
-                        <a class="nav-link" href="/Games/PublisherPL/EditPublisher.aspx">Editoras</a>
+                        <a class="nav-link" href="/Games/PublisherPL/Publishers.aspx">Editoras</a>
                     </li>
                     <li class="nav-item active" id="navLinkEditGenre" runat="server">
-                        <a class="nav-link" href="/Games/GenrePL/EditGenre.aspx">Géneros</a>
+                        <a class="nav-link" href="/Games/GenrePL/Genres.aspx">Géneros</a>
                     </li>
                 </ul>
                 <span class="navbar-text">Bem vindo(a) <%= Session["username"].ToString() %>
