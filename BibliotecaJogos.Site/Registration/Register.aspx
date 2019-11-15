@@ -41,6 +41,7 @@
                    <br />
                    <asp:Button Text="Registar" ID="btRegistar" CssClass="btn btn-black" runat="server" OnClick="btRegistar_Click" />
                    <asp:Button Text="Cancelar" ID="btCancelar" CssClass="btn btn-primary" runat="server" CausesValidation="false" OnClick="btCancelar_Click" />
+                   <asp:HyperLink ID="hlLogin" runat="server" Visible="false" NavigateUrl="~/Authentication/Login.aspx">Clique aqui para fazer login</asp:HyperLink>
                </form>
             </div>
          </div>

@@ -50,7 +50,7 @@ namespace BibliotecaJogos.Site.Games.GenrePL
 
         protected void btCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Games/GameLibraryPL/GameLibrary.aspx");
+            Response.Redirect("~/Games/GenrePL/Genres.aspx");
         }
     }
 }

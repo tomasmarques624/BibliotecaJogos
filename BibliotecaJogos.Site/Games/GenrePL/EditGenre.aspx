@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:HyperLink ID="hlCatalogo" runat="server" NavigateUrl="~/Games/GameLibraryPL/GameLibrary.aspx">Clique aqui para aceder ao catálogo</asp:HyperLink>
+                        <asp:HyperLink ID="hlCatalogo" runat="server" Visible="false" NavigateUrl="~/Games/GenrePL/Genres.aspx">Clique aqui para aceder à lista</asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
