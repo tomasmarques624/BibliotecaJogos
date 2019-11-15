@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h2>Novo Editor</h2>
+            <h2>Novo Editora</h2>
             <table>
                 <tr>
                     <td>Nome :</td>

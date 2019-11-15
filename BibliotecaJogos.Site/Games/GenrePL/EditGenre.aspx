@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button id="btSalvar" Text="Inserir" runat="server" onclick="btSalvar_Click" />
+                        <asp:Button id="btSalvar" Text="Salvar" runat="server" onclick="btSalvar_Click" />
                         <asp:Button id="btCancelar" Text="Cancelar" CausesValidation="false" runat="server" OnClick="btCancelar_Click"/>
                     </td>
                 </tr>
