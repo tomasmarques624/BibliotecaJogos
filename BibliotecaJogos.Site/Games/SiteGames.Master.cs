@@ -12,7 +12,11 @@ namespace BibliotecaJogos.Site.Games
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["role"].ToString() == "U")
+            {
+                navLinkEditPublisher.Attributes["style"] = "display:none";
+                navLinkEditGenre.Attributes["style"] = "display:none";
+            }
         }
 
         protected void buttonLogout_Click(object sender, EventArgs e)

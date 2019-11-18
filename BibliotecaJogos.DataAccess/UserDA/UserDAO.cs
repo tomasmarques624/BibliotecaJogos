@@ -14,6 +14,75 @@ namespace BibliotecaJogos.DataAccess.UserDA
 {
     public class UserDAO
     {
+        public static List<User> GetUsers()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_GetUsers";
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+
+                    using (SqlDataReader dataReader = command.ExecuteReader())
+                    {
+                        if (dataReader.HasRows)
+                        {
+                            List<User> listUsers = new List<User>();
+                            while (dataReader.Read())
+                            {
+                                listUsers.Add(new User()
+                                {
+                                    id_User = Convert.ToInt32(dataReader["id_user"]),
+                                    Username = dataReader["username"].ToString()
+                                });
+                            }
+                            return listUsers;
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
+        public static int UpdateUser(User user)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_UpdateUserByID";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_user", user.id_User);
+                    command.Parameters.AddWithValue("@username", user.Username);
+                    command.Parameters.AddWithValue("@password", user.Password);
+                    command.Parameters.AddWithValue("@role", user.Role);
+                    connection.Open();
+                    int returncode = (int)command.ExecuteScalar();
+                    return returncode;
+                }
+            }
+        }
+        public static int RemoveUser(int id_user)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_DeleteUserByID";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_user", id_user);
+                    connection.Open();
+                    int returncode = (int)command.ExecuteScalar();
+                    return returncode;
+                }
+            }
+        }
         public static int RegisterUser(User user)
         {
             using (SqlConnection connection = new SqlConnection())

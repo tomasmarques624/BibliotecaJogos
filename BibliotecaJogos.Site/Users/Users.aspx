@@ -41,7 +41,7 @@
             </asp:GridView>
         </div>
         <br />
-        <asp:Button Text="Salvar as alterações" runat="server" />
+        <asp:Button ID="btSalvar" Text="Salvar as alterações" runat="server" OnClick="btSalvar_Click" />
     </form>
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>

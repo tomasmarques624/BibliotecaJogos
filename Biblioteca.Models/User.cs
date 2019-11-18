@@ -12,5 +12,8 @@ namespace Biblioteca.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public char Role { get; set; }
+        public bool? isloocked { get; set; }
+        public int? nr_attempts { get; set; }
+        public DateTime? locked_date_time { get; set; }
     }
 }

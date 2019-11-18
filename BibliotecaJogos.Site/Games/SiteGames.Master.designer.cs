@@ -49,6 +49,15 @@ namespace BibliotecaJogos.Site.Games {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl navLinkEditGenre;
         
         /// <summary>
+        /// navLinkUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navLinkUsers;
+        
+        /// <summary>
         /// buttonLogout control.
         /// </summary>
         /// <remarks>

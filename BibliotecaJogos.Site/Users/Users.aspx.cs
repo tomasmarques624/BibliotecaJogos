@@ -13,7 +13,12 @@ namespace BibliotecaJogos.Site.Users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                List<User> listGenres = UserDAO.GetUsers();
+                gvUsers.DataSource = listGenres;
+                gvUsers.DataBind();
+            }
         }
 
         protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -26,6 +31,36 @@ namespace BibliotecaJogos.Site.Users
                     ((CheckBox)e.Row.FindControl("chbxAdmin")).Checked = true;
                 }
             }
+        }
+
+        protected void btSalvar_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < gvUsers.Rows.Count; i++)
+            {
+                User user = UserDAO.GetUserByID(Convert.ToInt32(gvUsers.DataKeys[i].Value));
+                int id_user = user.id_User;
+
+                if (((CheckBox)gvUsers.Rows[i].FindControl("chbxEliminar")).Checked)
+                {
+                    UserDAO.RemoveUser(id_user);
+                    continue;
+                }
+
+                if (((CheckBox)gvUsers.Rows[i].FindControl("chbxAdmin")).Checked)
+                {
+                    user.Role = 'A';
+                }
+                else
+                {
+                    user.Role = 'U';
+                    if(Session["username"].ToString() == user.Username)
+                    {
+                        Session["role"] =   'U';
+                    }
+                }
+                UserDAO.UpdateUser(user);
+            }
+            Response.Redirect("~/Games/GameLibraryPL/GameLibrary.aspx");
         }
     }
 }

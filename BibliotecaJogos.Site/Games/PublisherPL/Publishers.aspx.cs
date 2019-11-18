@@ -1,4 +1,5 @@
-﻿using BibliotecaJogos.DataAccess.PublisherDA;
+﻿using Biblioteca.Models;
+using BibliotecaJogos.DataAccess.PublisherDA;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,21 +17,11 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
         {
             if (!Page.IsPostBack)
             {
-                using (SqlConnection connection = new SqlConnection())
+                if (!Page.IsPostBack)
                 {
-                    connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "sp_GetPublishers";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        connection.Open();
-                        using (SqlDataReader sqlDataReader = command.ExecuteReader())
-                        {
-                            gvPublisherList.DataSource = sqlDataReader;
-                            gvPublisherList.DataBind();
-                        }
-                    }
+                    List<Publisher> listPublishers = PublisherDAO.getPublishers();
+                    gvPublisherList.DataSource = listPublishers;
+                    gvPublisherList.DataBind();
                 }
             }
         }

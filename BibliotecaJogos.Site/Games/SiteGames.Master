@@ -26,6 +26,9 @@
                     <li class="nav-item active" id="navLinkEditGenre" runat="server">
                         <a class="nav-link" href="/Games/GenrePL/Genres.aspx">Géneros</a>
                     </li>
+                     <li class="nav-item active" id="navLinkUsers" runat="server">
+                        <a class="nav-link" href="../../Users/Users.aspx">Utilizadores</a>
+                    </li>
                 </ul>
                 <span class="navbar-text">Bem vindo(a) <%= Session["username"].ToString() %>
                 </span>

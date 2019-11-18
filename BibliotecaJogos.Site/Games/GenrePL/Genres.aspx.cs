@@ -1,4 +1,5 @@
 ﻿
+using Biblioteca.Models;
 using BibliotecaJogos.DataAccess.GenreDA;
 using System;
 using System.Collections.Generic;
@@ -16,22 +17,9 @@ namespace BibliotecaJogos.Site.Games.GenrePL
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) {
-                using (SqlConnection connection = new SqlConnection())
-                {
-                    connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "sp_GetGenres";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        connection.Open();
-                        using (SqlDataReader sqlDataReader = command.ExecuteReader())
-                        {
-                            gvGenreList.DataSource = sqlDataReader;
-                            gvGenreList.DataBind();
-                        }
-                    }
-                }
+                List<Genre> listGenres = GenreDAO.getGenres();
+                gvGenreList.DataSource = listGenres;
+                gvGenreList.DataBind();
             }
         }
 
