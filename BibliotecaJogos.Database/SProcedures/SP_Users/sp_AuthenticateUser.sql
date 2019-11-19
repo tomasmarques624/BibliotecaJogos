@@ -52,6 +52,7 @@ BEGIN
 						begin
 							select 1 as ReturnCode
 							SELECT * FROM tblUsers WHERE username = @username
+							update tblUsers set is_looked = 0,locked_date_time = null, nr_attempts = 0 where username = @username
 						end
 				end
 				else
@@ -65,7 +66,7 @@ BEGIN
 				SELECT @count1 = COUNT(*) FROM tblUsers WHERE username = @username and password = @password
 				if(@count1 = 0)
 					begin
-						if(@nr_attempts > 3)
+						if(@nr_attempts >= 3)
 							begin
 								update tblUsers set is_looked = 1, locked_date_time = GETDATE() where username = @username
 								select -1 as ReturnCode
@@ -82,6 +83,7 @@ BEGIN
 					begin
 						select 1 as ReturnCode
 						SELECT * FROM tblUsers WHERE username = @username
+						update tblUsers set is_looked = 0,locked_date_time = null, nr_attempts = 0 where username = @username
 					end
 			end
 	END
