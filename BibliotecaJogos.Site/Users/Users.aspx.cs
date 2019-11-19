@@ -35,8 +35,9 @@ namespace BibliotecaJogos.Site.Users
 
         protected void btSalvar_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < gvUsers.Rows.Count; i++)
+            for (int i = 0; i < gvUsers.Rows.Count; i++)
             {
+                
                 User user = UserDAO.GetUserByID(Convert.ToInt32(gvUsers.DataKeys[i].Value));
                 int id_user = user.id_User;
 

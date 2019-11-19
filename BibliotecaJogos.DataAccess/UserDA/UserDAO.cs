@@ -128,6 +128,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                 User user = new User()
                                 {
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
+                                    Password = dataReader["password"].ToString(),
                                     Username = dataReader["username"].ToString(),
                                     Role = dataReader["role"].ToString()[0]
                                 };

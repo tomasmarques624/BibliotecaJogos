@@ -14,7 +14,7 @@
          <h2>Utilizadores</h2>
         </div>
         <div>
-        <asp:GridView ID="gvUsers" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled" OnRowDataBound="gvUsers_RowDataBound">
+        <asp:GridView ID="gvUsers" DataKeyNames="id_user" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled" OnRowDataBound="gvUsers_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField ="id_user" ReadOnly="true" HeaderText="ID" />
                 </Columns>
