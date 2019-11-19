@@ -95,7 +95,4 @@
     <None Include="Database\GameLibraryDB.mdf" />
     <None Include="Database\GameLibraryDB.ldf" />
   </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="BibliotecaJogos.Database.refactorlog" />
-  </ItemGroup>
 </Project>
