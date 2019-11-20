@@ -12,7 +12,8 @@
             <h2>Editoras</h2>
              <asp:GridView ID="gvPublisherList" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled"
                    OnRowDeleting="gvPublisherList_RowDeleting"
-                    OnRowEditing="gvPublisherList_RowEditing">
+                    OnRowEditing="gvPublisherList_RowEditing"
+                    OnRowUpdating="gvPublisherList_RowUpdating">
                 <Columns>
                     <asp:BoundField DataField ="id_publisher" ReadOnly="true" HeaderText="ID" />
                 </Columns>

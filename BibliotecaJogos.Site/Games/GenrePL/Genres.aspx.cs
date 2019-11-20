@@ -16,7 +16,13 @@ namespace BibliotecaJogos.Site.Games.GenrePL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) {
+            refresh();
+        }
+
+        private void refresh()
+        {
+            if (!Page.IsPostBack)
+            {
                 List<Genre> listGenres = GenreDAO.getGenres();
                 gvGenreList.DataSource = listGenres;
                 gvGenreList.DataBind();
@@ -49,12 +55,38 @@ namespace BibliotecaJogos.Site.Games.GenrePL
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
                 lbMensagem.Text = "Eliminição Efetuada com sucesso!";
             }
+            refresh();
         }
 
         protected void gvGenreList_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            string id = gvGenreList.Rows[e.NewEditIndex].Cells[0].Text;
-            Response.Redirect("~/Games/GenrePL/EditGenre.aspx?id_genre=" + id);
+            gvGenreList.EditIndex = e.NewEditIndex;
+            refresh();
+            /*string id = gvGenreList.Rows[e.NewEditIndex].Cells[0].Text;
+            Response.Redirect("~/Games/GenrePL/EditGenre.aspx?id_genre=" + id);*/
+        }
+
+        protected void gvGenreList_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int id_genre = Convert.ToInt32(gvGenreList.Rows[e.RowIndex].Cells[0].Text);
+            Genre genre = new Genre
+            {
+                id_genre = id_genre,
+                description_genre = e.NewValues["description_genre"].ToString()
+            };
+            int ReturnCode = GenreDAO.UpdateGenre(genre);
+            if (ReturnCode == -1)
+            {
+                lbMensagem.ForeColor = System.Drawing.Color.Red;
+                lbMensagem.Text = "Edição falhada!";
+                refresh();
+            }
+            else
+            {
+                lbMensagem.Text = "Edição feita com sucesso!<br />";
+                lbMensagem.ForeColor = System.Drawing.Color.Green;
+                refresh();
+            }
         }
     }
 }

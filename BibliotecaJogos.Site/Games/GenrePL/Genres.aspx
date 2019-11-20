@@ -12,7 +12,8 @@
             <h2>Géneros</h2>
              <asp:GridView ID="gvGenreList" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled"
                   OnRowDeleting="gvGenreList_RowDeleting"
-                  OnRowEditing="gvGenreList_RowEditing">
+                  OnRowEditing="gvGenreList_RowEditing"
+                  OnRowUpdating="gvGenreList_RowUpdating">
                 <Columns>
                     <asp:BoundField DataField ="id_genre" ReadOnly="true" HeaderText="ID" />
                 </Columns>
