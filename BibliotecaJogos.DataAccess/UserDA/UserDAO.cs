@@ -170,7 +170,10 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
                                     Username = dataReader["username"].ToString(),
                                     Password = dataReader["password"].ToString(),
-                                    Role = dataReader["role"].ToString()[0]
+                                    Role = dataReader["role"].ToString()[0],
+                                    isloocked = Convert.ToBoolean(dataReader["is_looked"]),
+                                    locked_date_time = Convert.ToDateTime(dataReader["locked_date_time"].ToString()),
+                                    nr_attempts = Convert.ToInt32(dataReader["nr_attempts"])
                                 };
                                 return user;
                             }

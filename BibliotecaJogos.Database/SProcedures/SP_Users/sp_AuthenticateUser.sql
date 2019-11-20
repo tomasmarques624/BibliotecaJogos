@@ -8,15 +8,15 @@ BEGIN
 	SELECT @count = COUNT(*) FROM tblUsers WHERE username = @username
 
 	IF(@count=0)
-	BEGIN
-		SELECT -1 AS ReturnCode
-	END
+		BEGIN
+			SELECT -1 AS ReturnCode
+		END
 	ELSE
-	BEGIN
-		declare @isloocked bit
-		declare @nr_attempts int
-		declare @locked_date_time datetime
-		DECLARE @count1 int
+		BEGIN
+			declare @isloocked bit
+			declare @nr_attempts int
+			declare @locked_date_time datetime
+			DECLARE @count1 int
 
 		--verificar se o user tem o acesso bloqueado
 		 --caso tenham passado 24 horas, desbloquear o acesso
@@ -38,53 +38,34 @@ BEGIN
 			begin
 				declare @a int
 				select @a = DATEDIFF(HOUR,@locked_date_time,GETDATE())
+
 				if(@a>24)
 				begin
-					update tblUsers set is_looked = 0,locked_date_time = null, nr_attempts = 0 where username = @username
-					SELECT @count1 = COUNT(*) FROM tblUsers WHERE username = @username and password = @password
-					if(@count1 = 0)
-						begin
-							update tblUsers set nr_attempts = @nr_attempts + 1 where username = @username
-							select -1 as ReturnCode
-							SELECT * FROM tblUsers WHERE username = @username
-						end
-					else
-						begin
-							select 1 as ReturnCode
-							SELECT * FROM tblUsers WHERE username = @username
-							update tblUsers set is_looked = 0,locked_date_time = null, nr_attempts = 0 where username = @username
-						end
+					update tblUsers set is_looked=0, nr_attempts=0, locked_date_time=null where username = @username	
+					set @isloocked = 0
 				end
-				else
-				begin
-					select -1 as ReturnCode
-					SELECT * FROM tblUsers WHERE username = @username
-				end
-			End
-		else
+			end
+
+		if(@isloocked = 0)
 			begin
 				SELECT @count1 = COUNT(*) FROM tblUsers WHERE username = @username and password = @password
 				if(@count1 = 0)
 					begin
 						if(@nr_attempts >= 3)
 							begin
-								update tblUsers set is_looked = 1, locked_date_time = GETDATE() where username = @username
-								select -1 as ReturnCode
-								SELECT * FROM tblUsers WHERE username = @username
+								update tblUsers set is_looked = 1, nr_attempts = 0, locked_date_time = GETDATE() where username = @username
 							end
 						else
 							begin
-								update tblUsers set nr_attempts = @nr_attempts + 1 where username = @username
-								select -1 as ReturnCode
-								SELECT * FROM tblUsers WHERE username = @username
+								update tblUsers set nr_attempts = nr_attempts + 1 where username = @username
 							end	
 					end
 				else
 					begin
-						select 1 as ReturnCode
-						SELECT * FROM tblUsers WHERE username = @username
 						update tblUsers set is_looked = 0,locked_date_time = null, nr_attempts = 0 where username = @username
 					end
 			end
-	END
+		END
+
+		select * from tblUsers where username = @username
 END
