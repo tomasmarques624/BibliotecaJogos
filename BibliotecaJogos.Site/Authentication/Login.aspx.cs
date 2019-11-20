@@ -26,7 +26,7 @@ namespace BibliotecaJogos.Site
                 User user = UserDAO.GetUser(username, password);
                 if(user == null)
                 {
-                    lbMensagem.Text = "Username e/ou password errado(s)";
+                    lbMensagem.Text = "Username não existe";
                 }
                 else
                 {
