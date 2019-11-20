@@ -54,5 +54,5 @@ BEGIN
 						end
 				end
 			END
-			select * from tblUsers where username = @username
+			SELECT * from tblUsers where username = @username
 	END

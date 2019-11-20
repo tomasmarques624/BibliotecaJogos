@@ -28,6 +28,10 @@ namespace BibliotecaJogos.Site
                 {
                     lbMensagem.Text = "Username não existe";
                 }
+                else if(user.isloocked == true)
+                {
+                    lbMensagem.Text = "Username encontra-se bloqueado! Data de bloqueio :"+user.locked_date_time;
+                }
                 else
                 {
                     Session["role"] = user.Role;
