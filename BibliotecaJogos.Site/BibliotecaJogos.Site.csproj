@@ -164,7 +164,6 @@
     <Content Include="Games\GamePL\DetailsGame.aspx" />
     <Content Include="Games\GamePL\EditGame.aspx" />
     <Content Include="Games\GameLibraryPL\GameLibrary.aspx" />
-    <Content Include="Games\GenrePL\EditGenre.aspx" />
     <Content Include="Games\GenrePL\Genres.aspx" />
     <Content Include="Games\GenrePL\NewGenre.aspx" />
     <Content Include="Games\PublisherPL\EditPublisher.aspx" />
@@ -235,13 +234,6 @@
     </Compile>
     <Compile Include="Games\GameLibraryPL\GameLibrary.aspx.designer.cs">
       <DependentUpon>GameLibrary.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Games\GenrePL\EditGenre.aspx.cs">
-      <DependentUpon>EditGenre.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Games\GenrePL\EditGenre.aspx.designer.cs">
-      <DependentUpon>EditGenre.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games\GenrePL\Genres.aspx.cs">
       <DependentUpon>Genres.aspx</DependentUpon>

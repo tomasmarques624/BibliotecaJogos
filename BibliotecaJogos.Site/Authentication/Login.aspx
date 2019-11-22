@@ -32,6 +32,7 @@
                    <asp:ValidationSummary HeaderText="Erros" ForeColor="Red" runat="server" />
                    <asp:Label Text="" ID="lbMensagem"  runat="server" ForeColor="Red" />
                    <br />
+                   <br />
                   <asp:Button id="btLogin" Text="Login" runat="server" CssClass="btn btn-black" OnClick="btLogin_Click" />
                   <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-primary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
                </form>

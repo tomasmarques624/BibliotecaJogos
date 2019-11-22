@@ -16,17 +16,17 @@ namespace BibliotecaJogos.Site.Games.GenrePL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            refresh();
+            if (!Page.IsPostBack)
+            {
+                refresh();
+            }
         }
 
         private void refresh()
         {
-            if (!Page.IsPostBack)
-            {
                 List<Genre> listGenres = GenreDAO.getGenres();
                 gvGenreList.DataSource = listGenres;
                 gvGenreList.DataBind();
-            }
         }
 
         protected void btNovoGenero_Click(object sender, EventArgs e)
@@ -62,8 +62,6 @@ namespace BibliotecaJogos.Site.Games.GenrePL
         {
             gvGenreList.EditIndex = e.NewEditIndex;
             refresh();
-            /*string id = gvGenreList.Rows[e.NewEditIndex].Cells[0].Text;
-            Response.Redirect("~/Games/GenrePL/EditGenre.aspx?id_genre=" + id);*/
         }
 
         protected void gvGenreList_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -79,14 +77,23 @@ namespace BibliotecaJogos.Site.Games.GenrePL
             {
                 lbMensagem.ForeColor = System.Drawing.Color.Red;
                 lbMensagem.Text = "Edição falhada!";
+                gvGenreList.EditIndex = -1;
                 refresh();
             }
             else
             {
                 lbMensagem.Text = "Edição feita com sucesso!<br />";
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
+                gvGenreList.EditIndex = -1;
                 refresh();
             }
+        }
+
+        protected void gvGenreList_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+                gvGenreList.EditIndex = -1;
+                refresh();
         }
     }
 }

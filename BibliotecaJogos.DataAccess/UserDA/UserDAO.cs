@@ -158,6 +158,10 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     {
                         while (dataReader.Read())
                         {
+                            /*if (Convert.ToInt32(dataReader["returncode"]) == -1)
+                            {
+                                return null;
+                            }*/
                             User user = new User(){
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
                                     Username = dataReader["username"].ToString(),
