@@ -36,8 +36,8 @@ namespace BibliotecaJogos.Site
                 Game game = new Game()
                 {
                     title = tbxTitulo.Text,
-                    amount_paid = Convert.ToDouble(tbxValorPago.Text),
-                    purchase_date = Convert.ToDateTime(tbxDataCompra.Text),
+                    amount_paid = string.IsNullOrWhiteSpace(tbxValorPago.Text) ? (double?)null : Convert.ToDouble(tbxValorPago.Text),
+                    purchase_date = string.IsNullOrWhiteSpace(tbxDataCompra.Text) ? (DateTime?)null : Convert.ToDateTime(tbxDataCompra.Text),
                     id_genre = Convert.ToInt32(ddlGenero.SelectedValue),
                     id_publisher = Convert.ToInt32(ddlEditor.SelectedValue),
                     cover_image = fluCapa.PostedFile.FileName

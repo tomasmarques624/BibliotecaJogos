@@ -156,34 +156,23 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     connection.Open();
                     using (SqlDataReader dataReader = command.ExecuteReader())
                     {
-                        if (dataReader.Read())
+                        while (dataReader.Read())
                         {
-                            if (Convert.ToInt32(dataReader["returncode"]) == -1)
-                            {
-                                return null;
-                            }
-                            if (dataReader.NextResult())
-                            {
-                                dataReader.Read();
-                                User user = new User()
-                                {
+                            User user = new User(){
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
                                     Username = dataReader["username"].ToString(),
                                     Password = dataReader["password"].ToString(),
                                     Role = dataReader["role"].ToString()[0],
-                                    isloocked = Convert.ToBoolean(dataReader["is_looked"]),
-                                    locked_date_time = Convert.ToDateTime(dataReader["locked_date_time"].ToString()),
-                                    nr_attempts = Convert.ToInt32(dataReader["nr_attempts"])
-                                };
-                                return user;
-                            }
+                                    isloocked = Convert.ToBoolean(dataReader["is_looked"]),                             
+                                    nr_attempts = Convert.ToInt32(dataReader["nr_attempts"]),
+                                    locked_date_time = dataReader["locked_date_time"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["locked_date_time"])
+                            };
+                            return user;
                         }
-                        return null;
                     }
+                    return null;
                 }
             }
         }
-
     }
-
 }

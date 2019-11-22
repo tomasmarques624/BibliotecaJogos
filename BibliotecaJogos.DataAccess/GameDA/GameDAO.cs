@@ -37,11 +37,11 @@ namespace BibliotecaJogos.DataAccess.GameDA
                                 {
                                     id_game = Convert.ToInt32(dataReader["id_game"]),
                                     title = dataReader["title"].ToString(),
-                                    amount_paid = Convert.ToDouble(dataReader["amount_paid"]),
+                                    amount_paid = dataReader["amount_paid"] == DBNull.Value ? (double?)null : Convert.ToDouble(dataReader["amount_paid"]),
                                     id_genre = Convert.ToInt32(dataReader["id_genre"]),
                                     id_publisher = Convert.ToInt32(dataReader["id_publisher"]),
                                     cover_image = dataReader["cover_image"].ToString(),
-                                    purchase_date = Convert.ToDateTime(dataReader["purchase_date"].ToString())
+                                    purchase_date = dataReader["purchase_date"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["purchase_date"])
                                 });
                             }
                             return listGames;
@@ -101,11 +101,11 @@ namespace BibliotecaJogos.DataAccess.GameDA
                                 {
                                     id_game = Convert.ToInt32(dataReader["id_game"]),
                                     title = dataReader["title"].ToString(),
-                                    amount_paid = Convert.ToDouble(dataReader["amount_paid"]),
+                                    amount_paid = dataReader["amount_paid"] == DBNull.Value ? (double?)null : Convert.ToDouble(dataReader["amount_paid"]),
                                     id_genre = Convert.ToInt32(dataReader["id_genre"]),
                                     id_publisher = Convert.ToInt32(dataReader["id_publisher"]),
                                     cover_image = dataReader["cover_image"].ToString(),
-                                    purchase_date = Convert.ToDateTime(dataReader["purchase_date"].ToString())
+                                    purchase_date = dataReader["purchase_date"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["purchase_date"])
                                 };
                                 return game;
                             }
