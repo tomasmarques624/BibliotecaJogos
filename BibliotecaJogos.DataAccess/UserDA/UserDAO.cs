@@ -158,7 +158,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     {
                         if (dataReader.Read())
                         {
-                            if (Convert.ToInt32(dataReader["ReturnCode"]) == -1)
+                            if (Convert.ToInt32(dataReader["returncode"]) == -1)
                             {
                                 return null;
                             }

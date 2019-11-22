@@ -9,7 +9,7 @@ BEGIN
 
 	IF(@count=0)
 		BEGIN
-			SELECT -1 AS ReturnCode
+			select -1 as returncode
 		END
 	ELSE
 		BEGIN
