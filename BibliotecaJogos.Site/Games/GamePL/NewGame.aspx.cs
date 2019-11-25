@@ -63,10 +63,8 @@ namespace BibliotecaJogos.Site
                     fluCapa.Enabled = false;
                     ddlEditor.Enabled = false;
                     ddlGenero.Enabled = false;
-                    btCancelar.Visible = false;
-                    btInserir.Visible = false;
-                    btLimpar.Visible = false;
-                    hlCatalogo.Visible = true;
+                    btInserir.Enabled = false;
+                    btLimpar.Enabled = false;
                 }
             }
         }

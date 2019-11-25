@@ -7,11 +7,7 @@ BEGIN
 
 	SELECT @count = COUNT(*) FROM tblUsers WHERE username = @username
 
-	IF(@count=0)
-		BEGIN
-			select -1 as returncode
-		END
-	ELSE
+	IF(@count<>0)
 		BEGIN
 			declare @isloocked bit
 			declare @nr_attempts int
@@ -54,5 +50,5 @@ BEGIN
 						end
 				end
 			END
-			SELECT * from tblUsers where username = @username
-	END
+	SELECT * from tblUsers where username = @username
+END

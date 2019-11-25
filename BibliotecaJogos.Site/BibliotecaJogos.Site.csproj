@@ -166,7 +166,6 @@
     <Content Include="Games\GameLibraryPL\GameLibrary.aspx" />
     <Content Include="Games\GenrePL\Genres.aspx" />
     <Content Include="Games\GenrePL\NewGenre.aspx" />
-    <Content Include="Games\PublisherPL\EditPublisher.aspx" />
     <Content Include="Games\PublisherPL\NewPublisher.aspx" />
     <Content Include="Authentication\Login.aspx" />
     <Content Include="Games\GamePL\NewGame.aspx" />
@@ -248,13 +247,6 @@
     </Compile>
     <Compile Include="Games\GenrePL\NewGenre.aspx.designer.cs">
       <DependentUpon>NewGenre.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Games\PublisherPL\EditPublisher.aspx.cs">
-      <DependentUpon>EditPublisher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Games\PublisherPL\EditPublisher.aspx.designer.cs">
-      <DependentUpon>EditPublisher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games\PublisherPL\NewPublisher.aspx.cs">
       <DependentUpon>NewPublisher.aspx</DependentUpon>

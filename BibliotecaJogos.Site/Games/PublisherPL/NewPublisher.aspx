@@ -4,23 +4,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Nova Editora</title>
+    <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
+    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
+
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="jumbotron">
             <h2>Novo Editora</h2>
+        </div>
+        <div>
             <table>
                 <tr>
                     <td>Nome :</td>
                     <td> 
-                        <asp:TextBox id="tbxNome" runat="server" />
+                        <asp:TextBox CssClass="form-control" id="tbxNome" runat="server" />
                         <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário um nome" Text="*" ControlToValidate="tbxNome" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:ValidationSummary HeaderText="Erros" ForeColor="Red" runat="server" />
+                        <asp:ValidationSummary HeaderText="<div class='validationheader'>&nbsp;Erros: </div>" ForeColor="Red" runat="server" displaymode="BulletList" CssClass="validationsummary"/>
                     </td>
                 </tr>
                 <tr>
@@ -30,17 +36,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:HyperLink ID="hlCatalogo" runat="server" NavigateUrl="~/Games/GameLibraryPL/GameLibrary.aspx">Clique aqui para aceder ao catálogo</asp:HyperLink>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button id="btInserir" Text="Inserir" runat="server" OnClick="btInserir_Click"/>
-                        <asp:Button id="btCancelar" Text="Cancelar" CausesValidation="false" runat="server" OnClick="btCancelar_Click"/>
+                        <asp:Button id="btInserir" CssClass="btn btn-primary" Text="Inserir" runat="server" OnClick="btInserir_Click"/>
+                        <asp:Button id="btCancelar" CssClass="btn btn-secondary" Text="Cancelar" CausesValidation="false" runat="server" OnClick="btCancelar_Click"/>
                     </td>
                 </tr>
             </table>
         </div>
     </form>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
 </body>
 </html>

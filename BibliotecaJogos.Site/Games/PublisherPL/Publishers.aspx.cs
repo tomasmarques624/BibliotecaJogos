@@ -15,17 +15,18 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            refresh();
+            if (!IsPostBack)
+            {
+                refresh();
+            }
         }
 
         private void refresh()
         {
-            if (!Page.IsPostBack)
-            {
+           
                 List<Publisher> listPublishers = PublisherDAO.getPublishers();
                 gvPublisherList.DataSource = listPublishers;
                 gvPublisherList.DataBind();
-            }
         }
         protected void gvPublisherList_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -52,8 +53,6 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
         {
             gvPublisherList.EditIndex = e.NewEditIndex;
             refresh();
-            /*string id = gvPublisherList.Rows[e.NewEditIndex].Cells[0].Text;
-            Response.Redirect("~/Games/PublisherPL/EditPublisher.aspx?id_publisher=" + id);*/
         }
 
         protected void btNovaEditora_Click(object sender, EventArgs e)
@@ -79,14 +78,22 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
             {
                 lbMensagem.ForeColor = System.Drawing.Color.Red;
                 lbMensagem.Text = "Edição falhada!";
+                gvPublisherList.EditIndex = -1;
                 refresh();
             }
             else
             {
                 lbMensagem.Text = "Edição feita com sucesso!<br />";
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
+                gvPublisherList.EditIndex = -1;
                 refresh();
             }
+        }
+
+        protected void gvPublisherList_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvPublisherList.EditIndex = -1;
+            refresh();
         }
     }
 }

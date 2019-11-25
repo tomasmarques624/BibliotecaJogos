@@ -156,25 +156,22 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     connection.Open();
                     using (SqlDataReader dataReader = command.ExecuteReader())
                     {
-                        while (dataReader.Read())
+                        if (dataReader.Read())
                         {
-                            /*if (Convert.ToInt32(dataReader["returncode"]) == -1)
+                            User user = new User()
                             {
-                                return null;
-                            }*/
-                            User user = new User(){
-                                    id_User = Convert.ToInt32(dataReader["id_user"]),
-                                    Username = dataReader["username"].ToString(),
-                                    Password = dataReader["password"].ToString(),
-                                    Role = dataReader["role"].ToString()[0],
-                                    isloocked = Convert.ToBoolean(dataReader["is_looked"]),                             
-                                    nr_attempts = Convert.ToInt32(dataReader["nr_attempts"]),
-                                    locked_date_time = dataReader["locked_date_time"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["locked_date_time"])
+                                id_User = Convert.ToInt32(dataReader["id_user"]),
+                                Username = dataReader["username"].ToString(),
+                                Password = dataReader["password"].ToString(),
+                                Role = dataReader["role"].ToString()[0],
+                                isloocked = Convert.ToBoolean(dataReader["is_looked"]),
+                                nr_attempts = Convert.ToInt32(dataReader["nr_attempts"]),
+                                locked_date_time = dataReader["locked_date_time"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["locked_date_time"])
                             };
                             return user;
                         }
+                        return null;
                     }
-                    return null;
                 }
             }
         }
