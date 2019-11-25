@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[sp_InsertUser]
 	@username varchar(50),
 	@password char(64),
+	@email varchar(64),
 	@role char(1)
 AS
 BEGIN
@@ -13,7 +14,7 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		insert into tblUsers values (@username,@password,@role)
+		insert into tblUsers values (@username,@password,@email,@role)
 		SELECT 1 AS ReturnCode
 	END
 END
