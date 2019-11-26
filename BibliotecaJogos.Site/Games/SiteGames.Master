@@ -34,7 +34,7 @@
                 </span>
             </div>
             <div style="padding-left: 1rem">
-                <asp:Button ID="buttonLogout" Text="Logout" runat="server" OnClick="buttonLogout_Click" />
+                <asp:Button ID="buttonLogout" Text="Logout" CssClass="btn btn-secondary" runat="server" OnClick="buttonLogout_Click" />
             </div>
         </nav>
         <div class="jumbotron">

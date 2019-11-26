@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BibliotecaJogos.Site.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SetNewPassword.aspx.cs" Inherits="BibliotecaJogos.Site.PwdMgmt.SetNewPassword" %>
 
 <!DOCTYPE html>
 
@@ -13,7 +13,7 @@
     <div class="sidenav" runat="server">
          <div class="login-main-text">
             <h2>Bliblioteca de Jogos</h2>
-            <p>Faça Login ou efetue o registo para aceder à aplicação.</p>
+            <p>Introduza a sua nova password.</p>
          </div>
       </div>
       <div class="main" runat="server">
@@ -21,23 +21,23 @@
             <div class="login-form">
                <form runat="server">
                   <div class="form-group">
-                     <label>User Name</label>
-                     <asp:TextBox ID="tbxUsername" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário o username" Text="*" ControlToValidate="tbxUsername" ForeColor="Red"></asp:RequiredFieldValidator>
-                  </div>
-                  <div class="form-group">
                      <label>Password</label>
                      <asp:TextBox ID="tbxPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário a password" Text="*" ControlToValidate="tbxPassword" ForeColor="Red"></asp:RequiredFieldValidator>
+                  </div>
+                   <div class="form-group">
+                       <label>Confirme a password</label>
+                     <asp:TextBox ID="tbxConfirmPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário confirmar a password" Text="*" ControlToValidate="tbxConfirmPassword" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:CompareValidator ErrorMessage="As passwords não são iguais!" ControlToValidate="tbxConfirmPassword" 
+                         ControlToCompare="tbxPassword" operator="Equal" text="*" runat="server" ForeColor="Red"/>
                   </div>
                    <asp:ValidationSummary HeaderText="Erros" ForeColor="Red" runat="server" />
                    <asp:Label Text="" ID="lbMensagem"  runat="server" ForeColor="Red" />
                    <br />
                    <br />
-                  <asp:Button id="btLogin" Text="Login" runat="server" CssClass="btn btn-primary" OnClick="btLogin_Click" />
-                  <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
-                   <br />
-                   <asp:HyperLink NavigateUrl="~/PwdMgmt/NewPasswordRequest.aspx" runat="server">Esqueceu-se da password?</asp:HyperLink>
+                  <asp:Button id="btConfirmar" Text="Confirmar" runat="server" CssClass="btn btn-primary" onclick="btConfirmar_Click" />
+                  <asp:HyperLink ID="hlLogin" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Authentication/Login.aspx">Cancelar</asp:HyperLink>
                </form>
             </div>
          </div>
