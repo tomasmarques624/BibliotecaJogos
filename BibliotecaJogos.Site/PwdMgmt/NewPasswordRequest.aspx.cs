@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BibliotecaJogos.DataAccess.PasswordDA;
+using BibliotecaJogos.DataAccess.UserDA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,7 +19,27 @@ namespace BibliotecaJogos.Site.PwdMgmt
 
         protected void btPedir_Click(object sender, EventArgs e)
         {
-
+            if (UserDAO.GetUserByEmail(tbxEmail.Text) == null)
+            {
+                lbMensagem.ForeColor = System.Drawing.Color.Red;
+                lbMensagem.Text = "Email inválido!<br />Contacte o administrador ou tente novamente...";
+            }
+            else
+            {
+                string guid = PasswordDAO.InsertNewResetPwdRequest(tbxEmail.Text);
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("likedat6969@gmail.com");
+                mailMessage.To.Add(tbxEmail.Text);
+                mailMessage.Subject = "Reposição de password";
+                mailMessage.Body = "https://localhost:44344/PwdMgmt/SetNewPassword.aspx?guid=" + guid;
+                mailMessage.IsBodyHtml = true;
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new System.Net.NetworkCredential("likedat6969@gmail.com", "teste123456");
+                smtpClient.Send(mailMessage);
+            }
         }
     }
 }

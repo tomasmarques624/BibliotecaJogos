@@ -3,6 +3,7 @@
 AS
 begin
 	declare @guid uniqueidentifier
+	
 	set @guid = newid()
 		declare @count int
 		SELECT @count = COUNT(*) FROM tblResetPwdRequests WHERE email = @email
@@ -14,4 +15,6 @@ begin
 		begin
 			insert into tblResetPwdRequests values (@guid,@email,GETDATE())
 		end
+
+		select @guid as guid
 end

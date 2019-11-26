@@ -24,44 +24,21 @@ namespace BibliotecaJogos.DataAccess.PasswordDA
                     command.Connection = connection;
                     command.CommandText = "sp_InsertPwdRequest";
                     command.CommandType = CommandType.StoredProcedure;
-                    if (UserDAO.GetUserByEmail(email) == null)
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+                    using (SqlDataReader dataReader = command.ExecuteReader())
                     {
+                        if (dataReader.Read())
+                        {
+                            return dataReader["guid"].ToString();
+                        }
                         return null;
                     }
-                    else
-                    {
-                        using (SqlDataReader dataReader = command.ExecuteReader())
-                        {
-                            if (dataReader.Read())
-                                {
-                                    ResetPwdRequests resetPwd = new ResetPwdRequests()
-                                    {
-                                        id_resetPwdRequest = Convert.ToInt32(dataReader["id_resetPwdRequest"]),
-                                        email = dataReader["email"].ToString(),
-                                        guid = dataReader["guid"].ToString(),
-                                        date_recovery_request = Convert.ToDateTime(dataReader["date_recovery_request"].ToString())
-                                    };
-                                    MailMessage mailMessage = new MailMessage();
-                                    mailMessage.From = new MailAddress("likedat6969@gmail.com");
-                                    mailMessage.To.Add(email);
-                                    mailMessage.Subject = "Teste";
-                                    mailMessage.Body = ""+resetPwd.guid;
-                                    mailMessage.IsBodyHtml = true;
-                                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                                    smtpClient.EnableSsl = true;
-                                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                                    smtpClient.UseDefaultCredentials = false;
-                                    smtpClient.Credentials = new System.Net.NetworkCredential("likedat6969@gmail.com", "teste123456");
-                                    smtpClient.Send(mailMessage);
-                                }
-                            }
-                        }
-                    } 
                 }
             }
         }
-
-        public static int ResetPassword(string email)
+        public static int ResetPassword(int id_user, string new_password)
         {
             using (SqlConnection connection = new SqlConnection())
             {
@@ -70,6 +47,8 @@ namespace BibliotecaJogos.DataAccess.PasswordDA
                 {
                     command.Connection = connection;
                     command.CommandText = "sp_ResetPassword";
+                    command.Parameters.AddWithValue("@id_user", id_user);
+                    command.Parameters.AddWithValue("@new_password", new_password);
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     int returncode = (int)command.ExecuteScalar();
