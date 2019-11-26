@@ -140,6 +140,44 @@ namespace BibliotecaJogos.DataAccess.UserDA
                 }
             }
         }
+        public static User GetUserByEmail(string email)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_GetUserByEmail";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Email", email);
+                    connection.Open();
+                    using (SqlDataReader dataReader = command.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            if (Convert.ToInt32(dataReader["ReturnCode"]) == -1)
+                            {
+                                return null;
+                            }
+                            if (dataReader.NextResult())
+                            {
+                                dataReader.Read();
+                                User user = new User()
+                                {
+                                    id_User = Convert.ToInt32(dataReader["id_user"]),
+                                    Password = dataReader["password"].ToString(),
+                                    Username = dataReader["username"].ToString(),
+                                    Role = dataReader["role"].ToString()[0]
+                                };
+                                return user;
+                            }
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
 
         public static User GetUser(string username, string password)
         {

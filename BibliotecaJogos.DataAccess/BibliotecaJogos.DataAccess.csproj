@@ -45,6 +45,7 @@
     <Compile Include="CryptoHelpers\PasswordEncryptSHA256.cs" />
     <Compile Include="GameDA\GameDAO.cs" />
     <Compile Include="GenreDA\GenreDAO.cs" />
+    <Compile Include="PasswordDA\PasswordDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublisherDA\PublisherDAO.cs" />
     <Compile Include="UserDA\UserDAO.cs" />
