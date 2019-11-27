@@ -85,6 +85,16 @@ namespace BibliotecaJogos.Site
                 if (ReturnCode == -1){
                     lbMensagem.ForeColor = System.Drawing.Color.Red;
                     lbMensagem.Text = "Edição falhada!";
+                    tbxValorPago.Enabled = false;
+                    tbxDataCompra.Enabled = false;
+                    tbxTitulo.Enabled = false;
+                    imgCapa.Visible = false;
+                    fluCapa.Enabled = false;
+                    ddlEditor.Enabled = false;
+                    ddlGenero.Enabled = false;
+                    btSalvar.Enabled = false;
+                    btCancelar.Enabled = false;
+                    hlCatalogo.Enabled = true;
                 }
                 else
                 {
@@ -97,10 +107,9 @@ namespace BibliotecaJogos.Site
                     fluCapa.Enabled = false;
                     ddlEditor.Enabled = false;
                     ddlGenero.Enabled = false;
-                    btCancelar.Visible = false;
-                    btSalvar.Visible = false;
-                    btCancelar.Visible = false;
-                    hlCatalogo.Visible = true;
+                    btSalvar.Enabled = false;
+                    btCancelar.Enabled = false;
+                    hlCatalogo.Enabled = true;
                 }
             }
         }

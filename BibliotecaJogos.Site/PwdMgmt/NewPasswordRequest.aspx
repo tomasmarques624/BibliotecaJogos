@@ -30,7 +30,7 @@
                    <br />
                    <br />
                   <asp:Button id="btPedir" Text="Pedir" runat="server" CssClass="btn btn-primary" onclick="btPedir_Click" />
-                  <asp:HyperLink ID="hlLogin" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Authentication/Login.aspx">Voltar</asp:HyperLink>
+                  <asp:HyperLink ID="hlLogin" runat="server" text="Cancelar" CssClass="btn btn-secondary" NavigateUrl="~/Authentication/Login.aspx"/>
                </form>
             </div>
          </div>

@@ -12,7 +12,7 @@ begin
 	END
 	ELSE
 	BEGIN
-		select * from tblResetPwdRequests where guid = @guid
 		SELECT 1 AS ReturnCode
+		select * from tblResetPwdRequests where guid = @guid
 	END
 END

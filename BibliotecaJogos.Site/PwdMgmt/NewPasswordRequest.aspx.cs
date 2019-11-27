@@ -23,6 +23,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
             {
                 lbMensagem.ForeColor = System.Drawing.Color.Red;
                 lbMensagem.Text = "Email inválido!<br />Contacte o administrador ou tente novamente...";
+                hlLogin.Text = "Voltar";
             }
             else
             {
@@ -31,6 +32,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
 
                 tbxEmail.Enabled = false;
                 btPedir.Enabled = false;
+                hlLogin.Text = "Voltar";
 
                 string guid = PasswordDAO.InsertNewResetPwdRequest(tbxEmail.Text);
 

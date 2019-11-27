@@ -41,8 +41,8 @@ namespace BibliotecaJogos.Site
                     tbxUsername.Enabled = false;
                     tbxPassword.Enabled = false;
                     tbxConfirmPassword.Enabled = false;
-                    btCancelar.Visible = false;
-                    btRegistar.Visible = false;
+                    btCancelar.Enabled = false;
+                    btRegistar.Enabled = false;
                     hlLogin.Visible = true;
                 }
             }

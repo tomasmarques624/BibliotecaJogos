@@ -27,6 +27,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
                 tbxConfirmPassword.Enabled = false;
                 tbxPassword.Enabled = false;
                 btConfirmar.Enabled = false;
+                hlLogin.Text = "Voltar";
             }
             else
             {
@@ -40,6 +41,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
                     tbxConfirmPassword.Enabled = false;
                     tbxPassword.Enabled = false;
                     btConfirmar.Enabled = false;
+                    hlLogin.Text = "Voltar";
                 }
                 else
                 {
@@ -51,6 +53,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
                         tbxConfirmPassword.Enabled = false;
                         tbxPassword.Enabled = false;
                         btConfirmar.Enabled = false;
+                        hlLogin.Text = "Voltar";
                     }
                     else
                     {
@@ -59,6 +62,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
                         tbxConfirmPassword.Enabled = false;
                         tbxPassword.Enabled = false;
                         btConfirmar.Enabled = false;
+                        hlLogin.Text = "Voltar";
                     }
                 }
             }

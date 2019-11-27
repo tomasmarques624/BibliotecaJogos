@@ -37,7 +37,7 @@
                    <br />
                    <br />
                   <asp:Button id="btConfirmar" Text="Confirmar" runat="server" CssClass="btn btn-primary" onclick="btConfirmar_Click" />
-                  <asp:HyperLink ID="hlLogin" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Authentication/Login.aspx">Cancelar</asp:HyperLink>
+                  <asp:HyperLink ID="hlLogin" runat="server" CssClass="btn btn-secondary" Text="Cancelar" NavigateUrl="~/Authentication/Login.aspx"/>
                </form>
             </div>
          </div>

@@ -26,7 +26,7 @@
                 <tr>
                     <td>Capa</td>
                     <td>
-                        <asp:FileUpload runat="server" ID="fluCapa"/>
+                        <asp:FileUpload CssClass="form-control-file" runat="server" ID="fluCapa"/>
                          <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário uma capa" Text="*" ControlToValidate="fluCapa" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -45,7 +45,7 @@
                 <tr>
                     <td>Editor</td>
                     <td>
-                        <asp:DropDownList ID="ddlEditor" runat="server" CssClass="mydropdownlist">
+                        <asp:DropDownList ID="ddlEditor" runat="server" CssClass="form-control">
                         </asp:DropDownList>
                          <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário um editor" Text="*" ControlToValidate="ddlEditor" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
@@ -53,7 +53,7 @@
                 <tr>
                     <td>Género</td>
                     <td>
-                        <asp:DropDownList ID="ddlGenero" runat="server" CssClass="mydropdownlist">
+                        <asp:DropDownList ID="ddlGenero" runat="server" CssClass="form-control">
                         </asp:DropDownList>
                          <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário um género" Text="*" ControlToValidate="ddlGenero" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
