@@ -26,7 +26,14 @@ namespace BibliotecaJogos.Site.PwdMgmt
             }
             else
             {
+                lbMensagem.ForeColor = System.Drawing.Color.Green;
+                lbMensagem.Text = "Pedido Efetuado com sucesso!";
+
+                tbxEmail.Enabled = false;
+                btPedir.Enabled = false;
+
                 string guid = PasswordDAO.InsertNewResetPwdRequest(tbxEmail.Text);
+
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.From = new MailAddress("likedat6969@gmail.com");
                 mailMessage.To.Add(tbxEmail.Text);
