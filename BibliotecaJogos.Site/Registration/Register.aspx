@@ -20,9 +20,14 @@
             <div class="login-form">
                <form runat="server">
                   <div class="form-group">
-                     <label>User Name</label>
+                     <label>Username</label>
                      <asp:TextBox ID="tbxUsername" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário o username" Text="*" ControlToValidate="tbxUsername" ForeColor="Red"></asp:RequiredFieldValidator>
+                  </div>
+                   <div class="form-group">
+                     <label>Email</label>
+                     <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário o email" Text="*" ControlToValidate="tbxEmail" ForeColor="Red"></asp:RequiredFieldValidator>
                   </div>
                   <div class="form-group">
                      <label>Password</label>

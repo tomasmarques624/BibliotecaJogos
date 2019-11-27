@@ -15,8 +15,8 @@ namespace BibliotecaJogos.Site.Users
         {
             if (!Page.IsPostBack)
             {
-                List<User> listGenres = UserDAO.GetUsers();
-                gvUsers.DataSource = listGenres;
+                List<User> listUsers = UserDAO.GetUsers();
+                gvUsers.DataSource = listUsers;
                 gvUsers.DataBind();
             }
         }

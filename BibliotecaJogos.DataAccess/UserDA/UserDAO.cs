@@ -36,7 +36,8 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                 listUsers.Add(new User()
                                 {
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
-                                    Username = dataReader["username"].ToString()
+                                    Username = dataReader["username"].ToString(),
+                                    Email = dataReader["email"].ToString()
                                 });
                             }
                             return listUsers;
@@ -59,6 +60,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     command.Parameters.AddWithValue("@id_user", user.id_User);
                     command.Parameters.AddWithValue("@username", user.Username);
                     command.Parameters.AddWithValue("@password", user.Password);
+                    command.Parameters.AddWithValue("@email", user.Email);
                     command.Parameters.AddWithValue("@role", user.Role);
                     connection.Open();
                     int returncode = (int)command.ExecuteScalar();
@@ -95,6 +97,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@username", user.Username);
                     command.Parameters.AddWithValue("@password", PasswordEncryptSHA256.GenerateSHA256String(user.Password));
+                    command.Parameters.AddWithValue("@email", user.Email);
                     command.Parameters.AddWithValue("@role", 'U');
                     connection.Open();
                     int returncode = (int)command.ExecuteScalar();
@@ -130,6 +133,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
                                     Password = dataReader["password"].ToString(),
                                     Username = dataReader["username"].ToString(),
+                                    Email = dataReader["email"].ToString(),
                                     Role = dataReader["role"].ToString()[0]
                                 };
                                 return user;
@@ -154,24 +158,19 @@ namespace BibliotecaJogos.DataAccess.UserDA
                     connection.Open();
                     using (SqlDataReader dataReader = command.ExecuteReader())
                     {
-                        if (dataReader.Read())
+                        if (dataReader.HasRows)
                         {
-                            if (Convert.ToInt32(dataReader["ReturnCode"]) == -1)
+                            User user = new User();
+                            while (dataReader.Read())
                             {
-                                return null;
-                            }
-                            if (dataReader.NextResult())
-                            {
-                                dataReader.Read();
-                                User user = new User()
+                                user = new User()
                                 {
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
-                                    Password = dataReader["password"].ToString(),
                                     Username = dataReader["username"].ToString(),
-                                    Role = dataReader["role"].ToString()[0]
+                                    Email = dataReader["email"].ToString()
                                 };
-                                return user;
                             }
+                            return user;
                         }
                         return null;
                     }
@@ -201,6 +200,7 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                 id_User = Convert.ToInt32(dataReader["id_user"]),
                                 Username = dataReader["username"].ToString(),
                                 Password = dataReader["password"].ToString(),
+                                Email = dataReader["email"].ToString(),
                                 Role = dataReader["role"].ToString()[0],
                                 isloocked = Convert.ToBoolean(dataReader["is_looked"]),
                                 nr_attempts = Convert.ToInt32(dataReader["nr_attempts"]),

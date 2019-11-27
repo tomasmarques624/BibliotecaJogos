@@ -16,6 +16,7 @@ namespace BibliotecaJogos.Site.Games
             {
                 navLinkEditPublisher.Attributes["style"] = "display:none";
                 navLinkEditGenre.Attributes["style"] = "display:none";
+                navLinkUsers.Attributes["style"] = "display:none";
             }
         }
 

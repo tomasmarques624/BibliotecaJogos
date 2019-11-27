@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Models;
+using BibliotecaJogos.DataAccess.CryptoHelpers;
 using BibliotecaJogos.DataAccess.UserDA;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace BibliotecaJogos.DataAccess.PasswordDA
                     command.Connection = connection;
                     command.CommandText = "sp_ResetPassword";
                     command.Parameters.AddWithValue("@id_user", id_user);
-                    command.Parameters.AddWithValue("@new_password", new_password);
+                    command.Parameters.AddWithValue("@new_password", PasswordEncryptSHA256.GenerateSHA256String(new_password));
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     int returncode = (int)command.ExecuteScalar();
@@ -65,7 +66,7 @@ namespace BibliotecaJogos.DataAccess.PasswordDA
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "sp_GetNewPwdRequestDataByGUID";
+                    command.CommandText = "sp_GetPwdRequestDataByGUID";
                     command.Parameters.AddWithValue("@guid", guid);
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();

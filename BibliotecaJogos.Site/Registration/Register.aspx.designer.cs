@@ -22,6 +22,15 @@ namespace BibliotecaJogos.Site {
         protected global::System.Web.UI.WebControls.TextBox tbxUsername;
         
         /// <summary>
+        /// tbxEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxEmail;
+        
+        /// <summary>
         /// tbxPassword control.
         /// </summary>
         /// <remarks>

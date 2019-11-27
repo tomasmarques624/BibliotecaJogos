@@ -24,6 +24,7 @@ namespace BibliotecaJogos.Site
                 {
                     Username = tbxUsername.Text,
                     Password = tbxPassword.Text,
+                    Email = tbxEmail.Text,
                     Role = 'U'
                 };
                 int returncode = UserDAO.RegisterUser(user);

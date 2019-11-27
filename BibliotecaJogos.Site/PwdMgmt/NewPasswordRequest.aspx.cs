@@ -27,7 +27,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
             else
             {
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
-                lbMensagem.Text = "Pedido Efetuado com sucesso!";
+                lbMensagem.Text = "Pedido Efetuado com sucesso! Instruções foram enviadas para o seu email.";
 
                 tbxEmail.Enabled = false;
                 btPedir.Enabled = false;
@@ -38,7 +38,7 @@ namespace BibliotecaJogos.Site.PwdMgmt
                 mailMessage.From = new MailAddress("likedat6969@gmail.com");
                 mailMessage.To.Add(tbxEmail.Text);
                 mailMessage.Subject = "Reposição de password";
-                mailMessage.Body = "https://localhost:44344/PwdMgmt/SetNewPassword.aspx?guid=" + guid;
+                mailMessage.Body = "Clique para repor a sua password : https://localhost:44344/PwdMgmt/SetNewPassword.aspx?guid=" + guid;
                 mailMessage.IsBodyHtml = true;
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;

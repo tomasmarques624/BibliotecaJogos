@@ -25,6 +25,10 @@
                     <asp:BoundField DataField ="username" HeaderText="Nome do Utilizador" />
                 </Columns>
 
+                <Columns>
+                    <asp:BoundField DataField ="email" HeaderText="Email" />
+                </Columns>
+
                 <Columns>      
                     <asp:TemplateField HeaderText="Privilégios de Administrador">
                         <ItemTemplate>
