@@ -44,6 +44,13 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+            <Columns>
+                    <asp:TemplateField HeaderText="Desbloquear Utilizador">
+                        <ItemTemplate>
+                            <asp:CheckBox runat="server" id="chbxDesbloquear" Text="Bloqueado"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
             </asp:GridView>
         </div>
         <br />

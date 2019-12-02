@@ -37,7 +37,8 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                 {
                                     id_User = Convert.ToInt32(dataReader["id_user"]),
                                     Username = dataReader["username"].ToString(),
-                                    Email = dataReader["email"].ToString()
+                                    Email = dataReader["email"].ToString(),
+                                    isloocked = Convert.ToBoolean(dataReader["is_looked"])
                                 });
                             }
                             return listUsers;
@@ -77,6 +78,24 @@ namespace BibliotecaJogos.DataAccess.UserDA
                 {
                     command.Connection = connection;
                     command.CommandText = "sp_DeleteUserByID";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_user", id_user);
+                    connection.Open();
+                    int returncode = (int)command.ExecuteScalar();
+                    return returncode;
+                }
+            }
+        }
+
+        public static int UnlockUser(int id_user)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_UnlockUser";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@id_user", id_user);
                     connection.Open();

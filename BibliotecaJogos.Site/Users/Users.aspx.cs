@@ -30,6 +30,10 @@ namespace BibliotecaJogos.Site.Users
                 {
                     ((CheckBox)e.Row.FindControl("chbxAdmin")).Checked = true;
                 }
+                if (user.isloocked == true)
+                {
+                    ((CheckBox)e.Row.FindControl("chbxDesbloquear")).Checked = true;
+                }
             }
         }
 
@@ -58,6 +62,10 @@ namespace BibliotecaJogos.Site.Users
                     {
                         Session["role"] =   'U';
                     }
+                }
+                if (((CheckBox)gvUsers.Rows[i].FindControl("chbxDesbloquear")).Checked == false)
+                {
+                    UserDAO.UnlockUser(id_user);
                 }
                 UserDAO.UpdateUser(user);
             }

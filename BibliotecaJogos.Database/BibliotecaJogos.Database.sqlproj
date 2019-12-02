@@ -97,6 +97,7 @@
     <Build Include="SProcedures\SP_Passwords\sp_InsertPwdRequest.sql" />
     <Build Include="SProcedures\SP_Passwords\sp_ResetPassword.sql" />
     <Build Include="SProcedures\SP_Users\sp_GetUserByEmail.sql" />
+    <Build Include="SProcedures\SP_Users\sp_UnlockUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database\GameLibraryDB.mdf" />
