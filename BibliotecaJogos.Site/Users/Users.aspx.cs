@@ -63,7 +63,11 @@ namespace BibliotecaJogos.Site.Users
                         Session["role"] =   'U';
                     }
                 }
-                if (((CheckBox)gvUsers.Rows[i].FindControl("chbxDesbloquear")).Checked == false)
+                if (((CheckBox)gvUsers.Rows[i].FindControl("chbxDesbloquear")).Checked)
+                {
+                    UserDAO.LockUser(id_user);
+                }
+                else
                 {
                     UserDAO.UnlockUser(id_user);
                 }

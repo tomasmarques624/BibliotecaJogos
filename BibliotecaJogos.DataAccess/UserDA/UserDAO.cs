@@ -104,6 +104,23 @@ namespace BibliotecaJogos.DataAccess.UserDA
                 }
             }
         }
+        public static int LockUser(int id_user)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "sp_LockUser";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id_user", id_user);
+                    connection.Open();
+                    int returncode = (int)command.ExecuteScalar();
+                    return returncode;
+                }
+            }
+        }
         public static int RegisterUser(User user)
         {
             using (SqlConnection connection = new SqlConnection())
@@ -153,7 +170,10 @@ namespace BibliotecaJogos.DataAccess.UserDA
                                     Password = dataReader["password"].ToString(),
                                     Username = dataReader["username"].ToString(),
                                     Email = dataReader["email"].ToString(),
-                                    Role = dataReader["role"].ToString()[0]
+                                    Role = dataReader["role"].ToString()[0],
+                                    isloocked = Convert.ToBoolean(dataReader["is_looked"]),
+                                    nr_attempts = Convert.ToInt32(dataReader["nr_attempts"]),
+                                    locked_date_time = dataReader["locked_date_time"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dataReader["locked_date_time"])
                                 };
                                 return user;
                             }
