@@ -88,7 +88,7 @@ namespace BibliotecaJogos.Site
                     tbxValorPago.Enabled = false;
                     tbxDataCompra.Enabled = false;
                     tbxTitulo.Enabled = false;
-                    imgCapa.Visible = false;
+                    imgCapa.Enabled = false;
                     fluCapa.Enabled = false;
                     ddlEditor.Enabled = false;
                     ddlGenero.Enabled = false;
@@ -103,7 +103,7 @@ namespace BibliotecaJogos.Site
                     tbxValorPago.Enabled = false;
                     tbxDataCompra.Enabled = false;
                     tbxTitulo.Enabled = false;
-                    imgCapa.Visible = false;
+                    imgCapa.Enabled = false;
                     fluCapa.Enabled = false;
                     ddlEditor.Enabled = false;
                     ddlGenero.Enabled = false;

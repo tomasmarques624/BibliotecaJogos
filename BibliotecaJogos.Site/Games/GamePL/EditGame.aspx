@@ -26,7 +26,7 @@
                 <tr>
                     <td>Capa</td>
                     <td>
-                        <asp:Image CssClass="img-thumbnail" id="imgCapa" runat="server" />
+                        <asp:Image Width="200px" Height="300px" CssClass="img-thumbnail" id="imgCapa" runat="server" />
                     </td>
                 </tr>
                 <tr>

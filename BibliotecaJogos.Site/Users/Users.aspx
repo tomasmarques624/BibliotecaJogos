@@ -32,7 +32,7 @@
                 <Columns>      
                     <asp:TemplateField HeaderText="Privilégios de Administrador">
                         <ItemTemplate>
-                            <asp:CheckBox runat="server" id="chbxAdmin" Text="Administrador"/>
+                            <asp:CheckBox runat="server" id="chbxAdmin" Text=" Administrador"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -40,14 +40,14 @@
             <Columns>
                     <asp:TemplateField HeaderText="Eliminar Utilizador">
                         <ItemTemplate>
-                            <asp:CheckBox runat="server" id="chbxEliminar" Text="Eliminar"/>
+                            <asp:CheckBox runat="server" id="chbxEliminar" Text=" Eliminar"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             <Columns>
                     <asp:TemplateField HeaderText="Desbloquear Utilizador">
                         <ItemTemplate>
-                            <asp:CheckBox runat="server" id="chbxDesbloquear" Text="Bloqueado"/>
+                            <asp:CheckBox runat="server" id="chbxDesbloquear" Text=" Bloqueado"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
