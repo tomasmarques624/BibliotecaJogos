@@ -199,6 +199,7 @@
     <Content Include="Games\SiteGames.Master" />
     <Content Include="Registration\Web.config" />
     <Content Include="PwdMgmt\Web.config" />
+    <Content Include="ContactUs\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -212,6 +213,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="ContactUs\ContactUs.aspx" />
     <Content Include="Users\Users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -310,6 +312,13 @@
     </Compile>
     <Compile Include="Registration\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

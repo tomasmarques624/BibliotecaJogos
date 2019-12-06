@@ -38,6 +38,8 @@
                   <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
                    <br />
                    <asp:HyperLink NavigateUrl="~/PwdMgmt/NewPasswordRequest.aspx" runat="server">Esqueceu-se da password?</asp:HyperLink>
+                   <br />
+                   <asp:HyperLink NavigateUrl="~/ContactUs/ContactUs.aspx" runat="server">Contacte-nos</asp:HyperLink>
                </form>
             </div>
          </div>
