@@ -26,12 +26,15 @@
                     <li class="nav-item active" id="navLinkEditGenre" runat="server">
                         <a class="nav-link" href="/Games/GenrePL/Genres.aspx">Géneros</a>
                     </li>
+                     <li class="nav-item active" id="navLinkUsers" runat="server">
+                        <a class="nav-link" href="../../Users/Users.aspx">Utilizadores</a>
+                    </li>
                 </ul>
                 <span class="navbar-text">Bem vindo(a) <%= Session["username"].ToString() %>
                 </span>
             </div>
             <div style="padding-left: 1rem">
-                <asp:Button ID="buttonLogout" Text="Logout" runat="server" OnClick="buttonLogout_Click" />
+                <asp:Button ID="buttonLogout" Text="Logout" CssClass="btn btn-secondary" runat="server" OnClick="buttonLogout_Click" />
             </div>
         </nav>
         <div class="jumbotron">

@@ -1,4 +1,5 @@
-﻿using BibliotecaJogos.DataAccess.PublisherDA;
+﻿using Biblioteca.Models;
+using BibliotecaJogos.DataAccess.PublisherDA;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,27 +15,19 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
-                using (SqlConnection connection = new SqlConnection())
-                {
-                    connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "sp_GetPublishers";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        connection.Open();
-                        using (SqlDataReader sqlDataReader = command.ExecuteReader())
-                        {
-                            gvPublisherList.DataSource = sqlDataReader;
-                            gvPublisherList.DataBind();
-                        }
-                    }
-                }
+                refresh();
             }
         }
 
+        private void refresh()
+        {
+           
+                List<Publisher> listPublishers = PublisherDAO.getPublishers();
+                gvPublisherList.DataSource = listPublishers;
+                gvPublisherList.DataBind();
+        }
         protected void gvPublisherList_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int returncode = PublisherDAO.DeletePublisher(Convert.ToInt32(gvPublisherList.Rows[e.RowIndex].Cells[0].Text));
@@ -53,12 +46,13 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
                 lbMensagem.Text = "Eliminição Efetuada com sucesso!";
             }
+            refresh();
         }
 
         protected void gvPublisherList_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            string id = gvPublisherList.Rows[e.NewEditIndex].Cells[0].Text;
-            Response.Redirect("~/Games/PublisherPL/EditPublisher.aspx?id_publisher=" + id);
+            gvPublisherList.EditIndex = e.NewEditIndex;
+            refresh();
         }
 
         protected void btNovaEditora_Click(object sender, EventArgs e)
@@ -69,6 +63,37 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
         protected void btVerCatalogo_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Games/GameLibraryPL/GameLibrary.aspx");
+        }
+
+        protected void gvPublisherList_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int id_publisher = Convert.ToInt32(gvPublisherList.Rows[e.RowIndex].Cells[0].Text);
+            Publisher publisher = new Publisher()
+            {
+                id_publisher = id_publisher,
+                name_publisher = e.NewValues["name_publisher"].ToString()
+            };
+            int ReturnCode = PublisherDAO.UpdatePublisher(publisher);
+            if (ReturnCode == -1)
+            {
+                lbMensagem.ForeColor = System.Drawing.Color.Red;
+                lbMensagem.Text = "Edição falhada!";
+                gvPublisherList.EditIndex = -1;
+                refresh();
+            }
+            else
+            {
+                lbMensagem.Text = "Edição feita com sucesso!<br />";
+                lbMensagem.ForeColor = System.Drawing.Color.Green;
+                gvPublisherList.EditIndex = -1;
+                refresh();
+            }
+        }
+
+        protected void gvPublisherList_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvPublisherList.EditIndex = -1;
+            refresh();
         }
     }
 }

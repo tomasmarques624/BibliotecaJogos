@@ -37,9 +37,7 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
                     lbMensagem.ForeColor = System.Drawing.Color.Green;
                     lbMensagem.Text = "Adição Efetuada com sucesso!";
                     tbxNome.Enabled = false;
-                    btCancelar.Visible = false;
-                    btInserir.Visible = false;
-                    hlCatalogo.Visible = true;
+                    btInserir.Enabled = false;
                 }
             }
         }

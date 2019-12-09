@@ -63,6 +63,7 @@
     <Folder Include="SProcedures\SP_Genres" />
     <Folder Include="SProcedures\SP_Publishers" />
     <Folder Include="SProcedures\SP_Users" />
+    <Folder Include="SProcedures\SP_Passwords" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\tblUsers.sql" />
@@ -90,6 +91,14 @@
     <Build Include="SProcedures\SP_Users\sp_InsertUser.sql" />
     <Build Include="SProcedures\SP_Users\sp_UpdateUserByID.sql" />
     <Build Include="SProcedures\SP_Users\sp_AuthenticateUser.sql" />
+    <Build Include="Tables\tblResetPwdRequests.sql" />
+    <Build Include="SProcedures\SP_Passwords\sp_DeletePwdRequestByEmail.sql" />
+    <Build Include="SProcedures\SP_Passwords\sp_GetPwdRequestDataByGUID.sql" />
+    <Build Include="SProcedures\SP_Passwords\sp_InsertPwdRequest.sql" />
+    <Build Include="SProcedures\SP_Passwords\sp_ResetPassword.sql" />
+    <Build Include="SProcedures\SP_Users\sp_GetUserByEmail.sql" />
+    <Build Include="SProcedures\SP_Users\sp_UnlockUser.sql" />
+    <Build Include="SProcedures\SP_Users\sp_LockUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database\GameLibraryDB.mdf" />

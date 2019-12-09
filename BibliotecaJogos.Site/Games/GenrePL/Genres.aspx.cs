@@ -1,4 +1,5 @@
 ﻿
+using Biblioteca.Models;
 using BibliotecaJogos.DataAccess.GenreDA;
 using System;
 using System.Collections.Generic;
@@ -15,24 +16,17 @@ namespace BibliotecaJogos.Site.Games.GenrePL
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) {
-                using (SqlConnection connection = new SqlConnection())
-                {
-                    connection.ConnectionString = ConfigurationManager.ConnectionStrings["GameLibraryDBCS"].ConnectionString;
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "sp_GetGenres";
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-                        connection.Open();
-                        using (SqlDataReader sqlDataReader = command.ExecuteReader())
-                        {
-                            gvGenreList.DataSource = sqlDataReader;
-                            gvGenreList.DataBind();
-                        }
-                    }
-                }
+            if (!Page.IsPostBack)
+            {
+                refresh();
             }
+        }
+
+        private void refresh()
+        {
+                List<Genre> listGenres = GenreDAO.getGenres();
+                gvGenreList.DataSource = listGenres;
+                gvGenreList.DataBind();
         }
 
         protected void btNovoGenero_Click(object sender, EventArgs e)
@@ -61,12 +55,45 @@ namespace BibliotecaJogos.Site.Games.GenrePL
                 lbMensagem.ForeColor = System.Drawing.Color.Green;
                 lbMensagem.Text = "Eliminição Efetuada com sucesso!";
             }
+            refresh();
         }
 
         protected void gvGenreList_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            string id = gvGenreList.Rows[e.NewEditIndex].Cells[0].Text;
-            Response.Redirect("~/Games/GenrePL/EditGenre.aspx?id_genre=" + id);
+            gvGenreList.EditIndex = e.NewEditIndex;
+            refresh();
+        }
+
+        protected void gvGenreList_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int id_genre = Convert.ToInt32(gvGenreList.Rows[e.RowIndex].Cells[0].Text);
+            Genre genre = new Genre
+            {
+                id_genre = id_genre,
+                description_genre = e.NewValues["description_genre"].ToString()
+            };
+            int ReturnCode = GenreDAO.UpdateGenre(genre);
+            if (ReturnCode == -1)
+            {
+                lbMensagem.ForeColor = System.Drawing.Color.Red;
+                lbMensagem.Text = "Edição falhada!";
+                gvGenreList.EditIndex = -1;
+                refresh();
+            }
+            else
+            {
+                lbMensagem.Text = "Edição feita com sucesso!<br />";
+                lbMensagem.ForeColor = System.Drawing.Color.Green;
+                gvGenreList.EditIndex = -1;
+                refresh();
+            }
+        }
+
+        protected void gvGenreList_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+                gvGenreList.EditIndex = -1;
+                refresh();
         }
     }
 }

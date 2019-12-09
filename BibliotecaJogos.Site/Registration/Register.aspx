@@ -20,9 +20,14 @@
             <div class="login-form">
                <form runat="server">
                   <div class="form-group">
-                     <label>User Name</label>
+                     <label>Username</label>
                      <asp:TextBox ID="tbxUsername" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário o username" Text="*" ControlToValidate="tbxUsername" ForeColor="Red"></asp:RequiredFieldValidator>
+                  </div>
+                   <div class="form-group">
+                     <label>Email</label>
+                     <asp:TextBox ID="tbxEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ErrorMessage="É necessário o email" Text="*" ControlToValidate="tbxEmail" ForeColor="Red"></asp:RequiredFieldValidator>
                   </div>
                   <div class="form-group">
                      <label>Password</label>
@@ -41,6 +46,7 @@
                    <br />
                    <asp:Button Text="Registar" ID="btRegistar" CssClass="btn btn-black" runat="server" OnClick="btRegistar_Click" />
                    <asp:Button Text="Cancelar" ID="btCancelar" CssClass="btn btn-primary" runat="server" CausesValidation="false" OnClick="btCancelar_Click" />
+                   <asp:HyperLink ID="hlLogin" runat="server" Visible="false" NavigateUrl="~/Authentication/Login.aspx">Clique aqui para fazer login</asp:HyperLink>
                </form>
             </div>
          </div>

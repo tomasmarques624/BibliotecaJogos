@@ -164,15 +164,15 @@
     <Content Include="Games\GamePL\DetailsGame.aspx" />
     <Content Include="Games\GamePL\EditGame.aspx" />
     <Content Include="Games\GameLibraryPL\GameLibrary.aspx" />
-    <Content Include="Games\GenrePL\EditGenre.aspx" />
     <Content Include="Games\GenrePL\Genres.aspx" />
     <Content Include="Games\GenrePL\NewGenre.aspx" />
-    <Content Include="Games\PublisherPL\EditPublisher.aspx" />
     <Content Include="Games\PublisherPL\NewPublisher.aspx" />
     <Content Include="Authentication\Login.aspx" />
     <Content Include="Games\GamePL\NewGame.aspx" />
     <Content Include="Games\PublisherPL\Publishers.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="PwdMgmt\NewPasswordRequest.aspx" />
+    <Content Include="PwdMgmt\SetNewPassword.aspx" />
     <Content Include="Registration\Register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -198,6 +198,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Games\SiteGames.Master" />
     <Content Include="Registration\Web.config" />
+    <Content Include="PwdMgmt\Web.config" />
+    <Content Include="ContactUs\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -211,6 +213,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="ContactUs\ContactUs.aspx" />
+    <Content Include="Users\Users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,13 +239,6 @@
     <Compile Include="Games\GameLibraryPL\GameLibrary.aspx.designer.cs">
       <DependentUpon>GameLibrary.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Games\GenrePL\EditGenre.aspx.cs">
-      <DependentUpon>EditGenre.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Games\GenrePL\EditGenre.aspx.designer.cs">
-      <DependentUpon>EditGenre.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Games\GenrePL\Genres.aspx.cs">
       <DependentUpon>Genres.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,13 +252,6 @@
     </Compile>
     <Compile Include="Games\GenrePL\NewGenre.aspx.designer.cs">
       <DependentUpon>NewGenre.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Games\PublisherPL\EditPublisher.aspx.cs">
-      <DependentUpon>EditPublisher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Games\PublisherPL\EditPublisher.aspx.designer.cs">
-      <DependentUpon>EditPublisher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games\PublisherPL\NewPublisher.aspx.cs">
       <DependentUpon>NewPublisher.aspx</DependentUpon>
@@ -302,12 +292,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PwdMgmt\NewPasswordRequest.aspx.cs">
+      <DependentUpon>NewPasswordRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PwdMgmt\NewPasswordRequest.aspx.designer.cs">
+      <DependentUpon>NewPasswordRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PwdMgmt\SetNewPassword.aspx.cs">
+      <DependentUpon>SetNewPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PwdMgmt\SetNewPassword.aspx.designer.cs">
+      <DependentUpon>SetNewPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registration\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

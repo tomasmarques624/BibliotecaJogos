@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
+    <link href="../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
 </head>
 <body>
     <div class="sidenav" runat="server">
@@ -32,13 +33,18 @@
                    <asp:ValidationSummary HeaderText="Erros" ForeColor="Red" runat="server" />
                    <asp:Label Text="" ID="lbMensagem"  runat="server" ForeColor="Red" />
                    <br />
-                  <asp:Button id="btLogin" Text="Login" runat="server" CssClass="btn btn-black" OnClick="btLogin_Click" />
-                  <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-primary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
+                   <br />
+                  <asp:Button id="btLogin" Text="Login" runat="server" CssClass="btn btn-primary" OnClick="btLogin_Click" />
+                  <asp:HyperLink ID="hlRegisto" runat="server" CssClass="btn btn-secondary" NavigateUrl="~/Registration/Register.aspx">Registar</asp:HyperLink>
+                   <br />
+                   <asp:HyperLink NavigateUrl="~/PwdMgmt/NewPasswordRequest.aspx" runat="server">Esqueceu-se da password?</asp:HyperLink>
+                   <br />
+                   <asp:HyperLink NavigateUrl="~/ContactUs/ContactUs.aspx" runat="server">Contacte-nos</asp:HyperLink>
                </form>
             </div>
          </div>
       </div>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/jquery-3.4.1.min.js"></script>
 </body>
+<script src="../Scripts/jquery-3.4.1.min.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>
 </html>

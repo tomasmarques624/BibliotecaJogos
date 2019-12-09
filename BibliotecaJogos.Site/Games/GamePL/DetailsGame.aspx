@@ -4,12 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Detalhes do Jogo</title>
+     <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
+    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="jumbotron">
             <h2>Detalhes do Jogo</h2>
+        </div>
+        <div>
             <table>
                 <tr>
                     <td>Título</td>
@@ -21,7 +26,7 @@
                 <tr>
                     <td>Capa</td>
                     <td>
-                        <asp:Image style="width: 150px; height: 200px"  runat="server" id="imageCapa"/>
+                        <asp:Image style="width: 150px; height: 200px"  runat="server" id="imageCapa" CssClass="img-thumbnail"/>
                     </td>
                 </tr>
 
@@ -53,8 +58,10 @@
                     </td>
                 </tr>
             </table>
-            <asp:Button id="btCatalogo" Text="Voltar ao Catálogo" runat="server" OnClick="btCatalogo_Click" />
+            <asp:Button id="btCatalogo" Text="Voltar ao Catálogo" runat="server" OnClick="btCatalogo_Click" cssclass="btn btn-primary"/>
         </div>
     </form>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
 </body>
 </html>

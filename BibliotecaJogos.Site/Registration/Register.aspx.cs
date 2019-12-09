@@ -24,6 +24,7 @@ namespace BibliotecaJogos.Site
                 {
                     Username = tbxUsername.Text,
                     Password = tbxPassword.Text,
+                    Email = tbxEmail.Text,
                     Role = 'U'
                 };
                 int returncode = UserDAO.RegisterUser(user);
@@ -39,8 +40,11 @@ namespace BibliotecaJogos.Site
 
                     tbxUsername.Enabled = false;
                     tbxPassword.Enabled = false;
-                    btCancelar.Visible = false;
-                    btRegistar.Visible = false;
+                    tbxConfirmPassword.Enabled = false;
+                    tbxEmail.Enabled = false;
+                    btCancelar.Enabled = false;
+                    btRegistar.Enabled = false;
+                    hlLogin.Visible = true;
                 }
             }
         }

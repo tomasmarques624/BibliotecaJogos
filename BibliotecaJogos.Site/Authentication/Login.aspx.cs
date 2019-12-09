@@ -26,7 +26,15 @@ namespace BibliotecaJogos.Site
                 User user = UserDAO.GetUser(username, password);
                 if(user == null)
                 {
-                    lbMensagem.Text = "Username e/ou password errado(s)";
+                    lbMensagem.Text = "O username não existe";
+                }
+                else if(user.nr_attempts != 0)
+                {
+                    lbMensagem.Text = "Palavra-passe incorreta! Tem mais " + (4-user.nr_attempts)+ " tentativas!";
+                }
+                else if(user.isloocked == true)
+                {
+                    lbMensagem.Text = "Username encontra-se bloqueado! Data de bloqueio :"+user.locked_date_time;
                 }
                 else
                 {
