@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
     <link href="../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

@@ -1,20 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Genres.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GenrePL.Genres" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Genres.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GenrePL.Genres" MasterPageFile="~/Games/SiteGames.Master"%>
 
-<!DOCTYPE html>
+<asp:content id="Content1"  ContentPlaceHolderID="head" runat="server"></asp:content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head runat="server">
-    <title>Géneros</title>
-    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
-    <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-
-<body>
-    <form id="form1" runat="server">
-            <div class="jumbotron">
-                <h2>Géneros</h2>
+<asp:content id="Content2"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <div id="content-page">
+                <h4>Géneros</h4>
             </div>
             <div>
              <asp:GridView ID="gvGenreList" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled"
@@ -43,8 +33,4 @@
                 <asp:Button id="btNovoGenero" CssClass="btn btn-primary" Text="Novo Género" runat="server" OnClick="btNovoGenero_Click" />
                 <asp:Button id="btVerCatalogo" CssClass="btn btn-secondary" Text="Ver Catálogo dos Jogos" runat="server" OnClick="btVerCatalogo_Click"/>
             </div>
-    </form>
-    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-</body>
-</html>
+</asp:content>

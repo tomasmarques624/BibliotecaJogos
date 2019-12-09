@@ -1,18 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewGenre.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GenrePL.NewGenre" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewGenre.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GenrePL.NewGenre" 
+    MasterPageFile="~/Games/SiteGames.Master" %>
 
-<!DOCTYPE html>
+<asp:content id="Content1"  ContentPlaceHolderID="head" runat="server"></asp:content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
-    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-            <div class="jumbotron">
-                <h2>Novo Género</h2>
+<asp:content id="Content2"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <div id="content-page">
+                <h4>Novo Género</h4>
             </div>
             <div>
             <table>
@@ -41,8 +34,4 @@
                 </tr>
             </table>
         </div>
-    </form>
-    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-</body>
-</html>
+</asp:content>

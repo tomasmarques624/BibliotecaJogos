@@ -26,12 +26,5 @@ namespace BibliotecaJogos.Site.Games
             Session.Abandon();
             Response.Redirect("~/Authentication/Login.aspx");
         }
-
-        protected void buttonLogout_Click(object sender, EventArgs e)
-        {
-            FormsAuthentication.SignOut();
-            Session.Abandon();
-            Response.Redirect("~/Authentication/Login.aspx");
-        }
     }
 }

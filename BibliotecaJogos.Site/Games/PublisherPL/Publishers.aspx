@@ -1,19 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Publishers.aspx.cs" Inherits="BibliotecaJogos.Site.Games.PublisherPL.Publishers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Publishers.aspx.cs" Inherits="BibliotecaJogos.Site.Games.PublisherPL.Publishers"
+    MasterPageFile="~/Games/SiteGames.Master" %>
 
-<!DOCTYPE html>
+<asp:content id="Content1"  ContentPlaceHolderID="head" runat="server"></asp:content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Editoras</title>
-    <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
-    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="jumbotron">
-            <h2>Editoras</h2>
-        </div>
+<asp:content id="Content2"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <div id="content-page">
+                <h4>Editoras</h4>
+            </div>
         <div>
              <asp:GridView ID="gvPublisherList" AutoGenerateColumns="false" EmptyDataText="Sem registos" runat="server" ViewStateMode="Enabled"
                    OnRowDeleting="gvPublisherList_RowDeleting"
@@ -42,8 +35,4 @@
             <asp:Button id="btNovaEditora" CssClass="btn btn-primary" Text="Nova Editora" runat="server"  OnClick="btNovaEditora_Click" />
             <asp:Button id="btVerCatalogo" CssClass="btn btn-secondary" Text="Ver Catálogo dos Jogos" runat="server" onclick="btVerCatalogo_Click"/>
         </div>
-    </form>
-    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-</body>
-</html>
+</asp:content>

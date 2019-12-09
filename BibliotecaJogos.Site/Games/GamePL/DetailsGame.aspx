@@ -1,18 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetailsGame.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GamePL.DetailsGame" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="DetailsGame.aspx.cs" Inherits="BibliotecaJogos.Site.Games.GamePL.DetailsGame" 
+     MasterPageFile="~/Games/SiteGames.Master" %>
 
-<!DOCTYPE html>
+<asp:content id="Content1"  ContentPlaceHolderID="head" runat="server"></asp:content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Detalhes do Jogo</title>
-     <link href="../../Content/CustomStyles/LibraryStyles/custom_style.css" rel="stylesheet" />
-    <link href="../../Content/CustomStyles/LoginRegisterStyles/loginregister.css" rel="stylesheet" />
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="jumbotron">
-            <h2>Detalhes do Jogo</h2>
+<asp:content id="Content2"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <div id="content-page">
+            <h4>Detalhes do Jogo</h4>
         </div>
         <div>
             <table>
@@ -60,8 +53,4 @@
             </table>
             <asp:Button id="btCatalogo" Text="Voltar ao Catálogo" runat="server" OnClick="btCatalogo_Click" cssclass="btn btn-primary"/>
         </div>
-    </form>
-    <script src="../../Scripts/bootstrap.min.js"></script>
-    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-</body>
-</html>
+   </asp:content>

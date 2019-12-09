@@ -13,15 +13,6 @@ namespace BibliotecaJogos.Site.Games.PublisherPL {
     public partial class NewPublisher {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// tbxNome control.
         /// </summary>
         /// <remarks>

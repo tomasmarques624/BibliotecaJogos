@@ -17,6 +17,10 @@ namespace BibliotecaJogos.Site.Games.GameLibraryPL
                 repeaterGameLibrary.DataSource = GameDAO.getGames();
                 repeaterGameLibrary.DataBind();
             }
+            if (Session["role"].ToString() == "U")
+            {
+                btNovoJogo.Visible = false;
+            }
         }
 
         protected void btNovoJogo_Click(object sender, EventArgs e)
