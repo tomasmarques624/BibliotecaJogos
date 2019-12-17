@@ -38,6 +38,7 @@ namespace BibliotecaJogos.Site.Games.PublisherPL
                     lbMensagem.Text = "Adição Efetuada com sucesso!";
                     tbxNome.Enabled = false;
                     btInserir.Enabled = false;
+                    btCancelar.Text = "Voltar";
                 }
             }
         }
